@@ -5,7 +5,7 @@ set -eu
 : "${UUID:?环境变量 UUID 未设置}"
 : "${WS_PATH:=ws}"
 : "${PORT:=8080}"
-DOMAIN="${RAILWAY_PUBLIC_DOMAIN:-localhost}"
+DOMAIN="${DOMAIN:-${RAILWAY_PUBLIC_DOMAIN:-${RENDER_EXTERNAL_HOSTNAME:-localhost}}}"
 
 # ---- xray 配置：VLESS + WS，监听本机 10000 ----
 cat > /etc/xray/config.json <<EOF
